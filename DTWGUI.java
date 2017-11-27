@@ -65,30 +65,22 @@ public class DTWGUI extends Application{
 	    Template bestTemplate = null;
 
 	    Vector<Point2D> userPoints = DTW.preTreat(userGesture);
-/*
+
         for (Template t : templates) {
             double dist = DTW.calculateDistance(t.getPoints(), userPoints);
-            double pathLength = getPathLength(t.getPoints());
-
 
             if (dist < bestDist) {
                 bestDist = dist;
                 bestTemplate = t;
             }
-        }*/
-
-
-
-        System.out.println(bestTemplate.getName());
-    }
-
-    private double getPathLength(Vector<Point2D> vector) {
-	    double length = 0;
-	    for (int i = 0; i < vector.size() - 1; i++) {
-	        length += vector.get(i).distance(vector.get(i + 1));
         }
 
-        return length;
+        if (bestTemplate != null) {
+			System.out.println(bestTemplate.getName());
+		} else {
+        	System.out.println("No match found");
+		}
+
     }
 
 	public static void main(String[] args) {

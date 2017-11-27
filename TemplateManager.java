@@ -38,7 +38,7 @@ public class TemplateManager
 			for (int i = 0; i < nList.getLength(); i++) {
 				Node nNode = nList.item(i);
 				Element eElement = (Element) nNode;
-				String name = eElement.getAttribute("name").toString();
+				String name = eElement.getAttribute("name");
 				
 				Vector<Point2D> pts = new Vector<Point2D>();
 				
@@ -46,8 +46,8 @@ public class TemplateManager
 				for (int j = 0; j < nListPoints.getLength(); j++) {
 					Node nNodepoints = nListPoints.item(j);
 					Element eElementPoint = (Element) nNodepoints;
-					double x = Double.parseDouble(eElementPoint.getAttribute("x").toString());
-					double y = Double.parseDouble(eElementPoint.getAttribute("y").toString());
+					double x = Double.parseDouble(eElementPoint.getAttribute("x"));
+					double y = Double.parseDouble(eElementPoint.getAttribute("y"));
 					pts.add(new Point2D(x, y));
 				}
 
@@ -56,14 +56,9 @@ public class TemplateManager
 				theTemplates.add(new Template(name, pts));
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		return theTemplates;
-	}
-	
-	Vector<Template> getTemplates() {
 		return theTemplates;
 	}
 }

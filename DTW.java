@@ -62,15 +62,13 @@ public class DTW {
         }
 
         double deltaX = xmax - xmin;
-        double deltaY = ymax - xmin;
+        double deltaY = ymax - ymin;
 
-        System.out.println(xmin + " - " + xmax  + " - " + ymin  + " - " + ymax);
+        double middleX = deltaX / 2;
+        double middleY = deltaY / 2;
 
         for (Point2D p: points) {
-            Point2D newPoint = new Point2D((p.getX() - xmin) / deltaX, (p.getY() - ymin) / deltaY);
-
-            System.out.println("old point " + p + " new point " + newPoint);
-
+            Point2D newPoint = new Point2D((p.getX() - xmin - middleX) / deltaX, (p.getY() - ymin - middleY) / deltaY);
             res.add(newPoint);
         }
 
